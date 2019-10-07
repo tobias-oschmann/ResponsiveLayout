@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:rl="clr-namespace:ResponsiveLayout.Xamarin.Forms;assembly=ResponsiveLayout.Xamarin.Forms"
+             mc:Ignorable="d"
+             x:Class="ResponsiveLayout.Xamarin.Forms.Demo.MainPage">
+
+    <rl:ResponsiveLayout>
+        <rl:ResponsiveLayout.ContentXS>
+            <StackLayout Margin="15"
+                         Spacing="15">
+                <Label Text="Smallest Layout"
+                       FontSize="20"
+                       Margin="15"
+                       HorizontalOptions="Center" />
+
+                <Entry Placeholder="First Entry" />
+                <Entry Placeholder="Second Entry" />
+                <Entry Placeholder="Third Entry" />
+                <Entry Placeholder="Fourth Entry" />
+
+                <DatePicker />
+                <TimePicker />
+            </StackLayout>
+        </rl:ResponsiveLayout.ContentXS>
+        <rl:ResponsiveLayout.ContentSM>
+            <StackLayout Margin="20"
+                         Spacing="20">
+                <Label Text="Layout SM"
+                       FontSize="20"
+                       Margin="20"
+                       HorizontalOptions="Center" />
+
+                <Grid>
+                    <Entry Placeholder="First Entry"
+                           Grid.Column="0" />
+                    <Entry Placeholder="Second Entry"
+                           Grid.Column="1" />
+                </Grid>
+
+                <Grid>
+                    <Entry Placeholder="Third Entry"
+                           Grid.Column="0" />
+                    <Entry Placeholder="Fourth Entry"
+                           Grid.Column="1" />
+                </Grid>
+
+                <DatePicker />
+                <TimePicker />
+            </StackLayout>
+        </rl:ResponsiveLayout.ContentSM>
+        <rl:ResponsiveLayout.ContentMD>
+            <StackLayout Margin="20"
+                         Spacing="20">
+                <Label Text="Layout MD"
+                       FontSize="20"
+                       Margin="20"
+                       HorizontalOptions="Center" />
+
+                <Grid>
+                    <Entry Placeholder="First Entry"
+                           Grid.Column="0" />
+                    <Entry Placeholder="Second Entry"
+                           Grid.Column="1" />
+                </Grid>
+
+                <Grid>
+                    <Entry Placeholder="Third Entry"
+                           Grid.Column="0" />
+                    <Entry Placeholder="Fourth Entry"
+                           Grid.Column="1" />
+                </Grid>
+
+                <Grid>
+                    <DatePicker  Grid.Column="0" />
+                    <TimePicker  Grid.Column="1" />
+                </Grid>
+            </StackLayout>
+        </rl:ResponsiveLayout.ContentMD>
+        <rl:ResponsiveLayout.ContentXL>
+            <StackLayout Margin="20"
+                         Spacing="20">
+                <Label Text="Layout XL"
+                       FontSize="20"
+                       Margin="20"
+                       HorizontalOptions="Center" />
+
+                <Grid>
+                    <Entry Placeholder="First Entry"
+                           Grid.Column="0" />
+                    <Entry Placeholder="Second Entry"
+                           Grid.Column="1" />
+                    <Entry Placeholder="Third Entry"
+                           Grid.Column="2" />
+                    <Entry Placeholder="Fourth Entry"
+                           Grid.Column="3" />
+                </Grid>
+
+                <Grid>
+                    <DatePicker  Grid.Column="0" />
+                    <TimePicker  Grid.Column="1" />
+                </Grid>
+            </StackLayout>
+        </rl:ResponsiveLayout.ContentXL>
+    </rl:ResponsiveLayout>
+
+</ContentPage>
