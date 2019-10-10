@@ -31,12 +31,18 @@
                 </rl:ResponsiveLayout.ContentTemplateIdiomDefault>
                 <rl:ResponsiveLayout.ContentTemplateIdiomDesktop>
                     <DataTemplate>
-                        <Label Text="This will be displayed on a Desktop" />
+                        <Label Text="This will be displayed on a Desktop"
+                               FontSize="Large"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
                     </DataTemplate>
                 </rl:ResponsiveLayout.ContentTemplateIdiomDesktop>
                 <rl:ResponsiveLayout.ContentTemplateIdiomPhone>
                     <DataTemplate>
-                        <Label Text="This will be displayed on a Smartphone" />
+                        <Label Text="This will be displayed on a Smartphone"
+                               FontSize="Large"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"  />
                     </DataTemplate>
                 </rl:ResponsiveLayout.ContentTemplateIdiomPhone>
 
@@ -58,12 +64,18 @@
 
                 <rl:ResponsiveLayout.ContentTemplateLandscape>
                     <DataTemplate>
-                        <Label Text="This will be displayed when the width is greater than the height" />
+                        <Label Text="Landscape Mode!"
+                               FontSize="Large"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
                     </DataTemplate>
                 </rl:ResponsiveLayout.ContentTemplateLandscape>
                 <rl:ResponsiveLayout.ContentTemplatePortrait>
                     <DataTemplate>
-                        <Label Text="This will be displayed when the height is greater than the width" />
+                        <Label Text="Portrait Mode!"
+                               FontSize="Large"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
                     </DataTemplate>
                 </rl:ResponsiveLayout.ContentTemplatePortrait>
 
