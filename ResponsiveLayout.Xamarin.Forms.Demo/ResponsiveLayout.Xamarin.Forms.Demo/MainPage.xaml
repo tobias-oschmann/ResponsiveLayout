@@ -3,107 +3,192 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ResponsiveLayout.Xamarin.Forms.Demo"
              xmlns:rl="clr-namespace:ResponsiveLayout.Xamarin.Forms;assembly=ResponsiveLayout.Xamarin.Forms"
              mc:Ignorable="d"
              x:Class="ResponsiveLayout.Xamarin.Forms.Demo.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout>
+            <Picker ItemsSource="{Binding LayoutModes}"
+                    SelectedItem="{Binding SelectedLayoutMode}"
+                    Margin="20" />
 
-    <rl:ResponsiveLayout>
-        <rl:ResponsiveLayout.ContentXS>
-            <StackLayout Margin="15"
-                         Spacing="15">
-                <Label Text="Smallest Layout"
-                       FontSize="20"
-                       Margin="15"
-                       HorizontalOptions="Center" />
 
-                <Entry Placeholder="First Entry" />
-                <Entry Placeholder="Second Entry" />
-                <Entry Placeholder="Third Entry" />
-                <Entry Placeholder="Fourth Entry" />
+            <rl:ResponsiveLayout LayoutMode="{Binding SelectedLayoutMode}">
+                <rl:ResponsiveLayout.EnableContentCaching>
+                    <OnIdiom x:TypeArguments="x:Boolean"
+                             Default="False"
+                             Desktop="True" />
+                </rl:ResponsiveLayout.EnableContentCaching>
 
-                <DatePicker />
-                <TimePicker />
-            </StackLayout>
-        </rl:ResponsiveLayout.ContentXS>
-        <rl:ResponsiveLayout.ContentSM>
-            <StackLayout Margin="20"
-                         Spacing="20">
-                <Label Text="Layout SM"
-                       FontSize="20"
-                       Margin="20"
-                       HorizontalOptions="Center" />
+                <rl:ResponsiveLayout.ContentTemplateIdiomDefault>
+                    <DataTemplate>
+                        <Label Text="This will be displayed on all other device types" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateIdiomDefault>
+                <rl:ResponsiveLayout.ContentTemplateIdiomDesktop>
+                    <DataTemplate>
+                        <Label Text="This will be displayed on a Desktop" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateIdiomDesktop>
+                <rl:ResponsiveLayout.ContentTemplateIdiomPhone>
+                    <DataTemplate>
+                        <Label Text="This will be displayed on a Smartphone" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateIdiomPhone>
 
-                <Grid>
-                    <Entry Placeholder="First Entry"
-                           Grid.Column="0" />
-                    <Entry Placeholder="Second Entry"
-                           Grid.Column="1" />
-                </Grid>
+                <rl:ResponsiveLayout.ContentTemplatePlatformDefault>
+                    <DataTemplate>
+                        <Label Text="This will be displayed on all other platforms" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplatePlatformDefault>
+                <rl:ResponsiveLayout.ContentTemplatePlatformAndroid>
+                    <DataTemplate>
+                        <Label Text="This will be displayed on android devices" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplatePlatformAndroid>
+                <rl:ResponsiveLayout.ContentTemplatePlatformUWP>
+                    <DataTemplate>
+                        <Label Text="This will be displayed on UWP apps" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplatePlatformUWP>
 
-                <Grid>
-                    <Entry Placeholder="Third Entry"
-                           Grid.Column="0" />
-                    <Entry Placeholder="Fourth Entry"
-                           Grid.Column="1" />
-                </Grid>
+                <rl:ResponsiveLayout.ContentTemplateLandscape>
+                    <DataTemplate>
+                        <Label Text="This will be displayed when the width is greater than the height" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateLandscape>
+                <rl:ResponsiveLayout.ContentTemplatePortrait>
+                    <DataTemplate>
+                        <Label Text="This will be displayed when the height is greater than the width" />
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplatePortrait>
 
-                <DatePicker />
-                <TimePicker />
-            </StackLayout>
-        </rl:ResponsiveLayout.ContentSM>
-        <rl:ResponsiveLayout.ContentMD>
-            <StackLayout Margin="20"
-                         Spacing="20">
-                <Label Text="Layout MD"
-                       FontSize="20"
-                       Margin="20"
-                       HorizontalOptions="Center" />
+                <rl:ResponsiveLayout.ContentTemplateXS>
+                    <DataTemplate>
+                        <StackLayout Margin="15"
+                                     Spacing="15">
+                            <Label Text="Smallest Layout"
+                                   FontSize="20"
+                                   Margin="15"
+                                   HorizontalOptions="Center" />
 
-                <Grid>
-                    <Entry Placeholder="First Entry"
-                           Grid.Column="0" />
-                    <Entry Placeholder="Second Entry"
-                           Grid.Column="1" />
-                </Grid>
+                            <Entry Placeholder="First Entry"
+                                   Text="{Binding FirstEntry}" />
+                            <Entry Placeholder="Second Entry"
+                                   Text="{Binding SecondEntry}" />
+                            <Entry Placeholder="Third Entry"
+                                   Text="{Binding ThirdEntry}" />
+                            <Entry Placeholder="Fourth Entry"
+                                   Text="{Binding FourthEntry}" />
 
-                <Grid>
-                    <Entry Placeholder="Third Entry"
-                           Grid.Column="0" />
-                    <Entry Placeholder="Fourth Entry"
-                           Grid.Column="1" />
-                </Grid>
+                            <DatePicker />
+                            <TimePicker />
+                        </StackLayout>
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateXS>
+                <rl:ResponsiveLayout.ContentTemplateSM>
+                    <DataTemplate>
+                        <StackLayout Margin="20"
+                                     Spacing="20">
+                            <Label Text="Layout SM"
+                                   FontSize="20"
+                                   Margin="20"
+                                   HorizontalOptions="Center" />
 
-                <Grid>
-                    <DatePicker  Grid.Column="0" />
-                    <TimePicker  Grid.Column="1" />
-                </Grid>
-            </StackLayout>
-        </rl:ResponsiveLayout.ContentMD>
-        <rl:ResponsiveLayout.ContentXL>
-            <StackLayout Margin="20"
-                         Spacing="20">
-                <Label Text="Layout XL"
-                       FontSize="20"
-                       Margin="20"
-                       HorizontalOptions="Center" />
+                            <Grid>
+                                <Entry Placeholder="First Entry"
+                                       Text="{Binding FirstEntry}"
+                                       Grid.Column="0" />
+                                <Entry Placeholder="Second Entry"
+                                       Text="{Binding SecondEntry}"
+                                       Grid.Column="1" />
+                            </Grid>
 
-                <Grid>
-                    <Entry Placeholder="First Entry"
-                           Grid.Column="0" />
-                    <Entry Placeholder="Second Entry"
-                           Grid.Column="1" />
-                    <Entry Placeholder="Third Entry"
-                           Grid.Column="2" />
-                    <Entry Placeholder="Fourth Entry"
-                           Grid.Column="3" />
-                </Grid>
+                            <Grid>
+                                <Entry Placeholder="Third Entry"
+                                       Text="{Binding ThirdEntry}"
+                                       Grid.Column="0" />
+                                <Entry Placeholder="Fourth Entry"
+                                       Text="{Binding FourthEntry}"
+                                       Grid.Column="1" />
+                            </Grid>
 
-                <Grid>
-                    <DatePicker  Grid.Column="0" />
-                    <TimePicker  Grid.Column="1" />
-                </Grid>
-            </StackLayout>
-        </rl:ResponsiveLayout.ContentXL>
-    </rl:ResponsiveLayout>
+                            <DatePicker />
+                            <TimePicker />
+                        </StackLayout>
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateSM>
+                <rl:ResponsiveLayout.ContentTemplateMD>
+                    <DataTemplate>
+                        <StackLayout Margin="20"
+                                     Spacing="20">
+                            <Label Text="Layout MD"
+                                   FontSize="20"
+                                   Margin="20"
+                                   HorizontalOptions="Center" />
 
+                            <Grid>
+                                <Entry Placeholder="First Entry"
+                                       Text="{Binding FirstEntry}"
+                                       Grid.Column="0" />
+                                <Entry Placeholder="Second Entry"
+                                       Text="{Binding SecondEntry}"
+                                       Grid.Column="1" />
+                            </Grid>
+
+                            <Grid>
+                                <Entry Placeholder="Third Entry"
+                                       Text="{Binding ThirdEntry}"
+                                       Grid.Column="0" />
+                                <Entry Placeholder="Fourth Entry"
+                                       Text="{Binding FourthEntry}"
+                                       Grid.Column="1" />
+                            </Grid>
+
+                            <Grid>
+                                <DatePicker  Grid.Column="0" />
+                                <TimePicker  Grid.Column="1" />
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateMD>
+                <rl:ResponsiveLayout.ContentTemplateXL>
+                    <DataTemplate>
+                        <StackLayout Margin="20"
+                                     Spacing="20">
+                            <Label Text="Layout XL"
+                                   FontSize="20"
+                                   Margin="20"
+                                   HorizontalOptions="Center" />
+
+                            <Grid>
+                                <Entry Placeholder="First Entry"
+                                       Text="{Binding FirstEntry}"
+                                       Grid.Column="0" />
+                                <Entry Placeholder="Second Entry"
+                                       Text="{Binding SecondEntry}"
+                                       Grid.Column="1" />
+                                <Entry Placeholder="Third Entry"
+                                       Text="{Binding ThirdEntry}"
+                                       Grid.Column="2" />
+                                <Entry Placeholder="Fourth Entry"
+                                       Text="{Binding FourthEntry}"
+                                       Grid.Column="3" />
+                            </Grid>
+
+                            <Grid>
+                                <DatePicker  Grid.Column="0" />
+                                <TimePicker  Grid.Column="1" />
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </rl:ResponsiveLayout.ContentTemplateXL>
+            </rl:ResponsiveLayout>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
